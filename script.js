@@ -56,6 +56,8 @@ function startGame() {
 function displayCurrentQuestion(){
     var question = questions[currentQuestion].question;
     var numChoices = questions[currentQuestion].choices.length;
+    var answer = questions[currentQuestion].correctAnswer;
+    console.dir(answer);
     ///Displaying question
     ul.textContent = question;
 
@@ -64,12 +66,18 @@ function displayCurrentQuestion(){
         choice = questions[currentQuestion].choices[i];
         var li = document.createElement("li");
         li.setAttribute("data-index", i);
-        li.textContent = choice;
+       // li.textContent = choice;
         //Displaying answer
-        ul.appendChild(li);			
+        ul.appendChild(li);	        
+        var button = document.createElement("button");
+        button.id = i;
+        button.className = "answer-button";
+        button.textContent = choice;
+        li.appendChild(button);    
     }
 
 }  
 
 // Attach event listener to start button to call startGame function on click
 startButton.addEventListener("click", startGame);
+
