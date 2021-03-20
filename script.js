@@ -56,17 +56,17 @@ function startGame() {
 function displayCurrentQuestion(){
     var question = questions[currentQuestion].question;
     var numChoices = questions[currentQuestion].choices.length;
-
+    ///Displaying question
     ul.textContent = question;
 
     for (i = 0; i < numChoices; i++) 
 	{
         choice = questions[currentQuestion].choices[i];
         var li = document.createElement("li");
+        li.setAttribute("data-index", i);
         li.textContent = choice;
-        ul.appendChild(li);
-		
-		console.log(choice);
+        //Displaying answer
+        ul.appendChild(li);			
     }
 
 }  
