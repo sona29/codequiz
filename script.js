@@ -46,6 +46,7 @@ var ul = document.querySelector(".choiceList");
 var currentQuestion = 0;
 var iSelectedAnswer = [];
 
+
 // The startGame function is called when the start button is clicked
 function startGame() {
    
@@ -57,7 +58,7 @@ function displayCurrentQuestion(){
     var question = questions[currentQuestion].question;
     var numChoices = questions[currentQuestion].choices.length;
     var answer = questions[currentQuestion].correctAnswer;
-    console.dir(answer);
+   
     ///Displaying question
     ul.textContent = question;
 
@@ -74,15 +75,9 @@ function displayCurrentQuestion(){
         button.className = "answer-button";
         button.textContent = choice;
         li.appendChild(button);   
-        
-           //on click of answer
-    ul.addEventListener("click", function(event){
-        var val = document.getElementsByClassName("answer-button");
-        console.log(val);
 
-    });
-    }
     
+    }
  
 
 }  
@@ -90,3 +85,9 @@ function displayCurrentQuestion(){
 // Attach event listener to start button to call startGame function on click
 startButton.addEventListener("click", startGame);
 
+//eventlistner function
+ul.addEventListener("click",function(event){
+    console.log(event.target.id);
+    
+    
+});
