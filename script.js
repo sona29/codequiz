@@ -73,8 +73,17 @@ function displayCurrentQuestion(){
         button.id = i;
         button.className = "answer-button";
         button.textContent = choice;
-        li.appendChild(button);    
+        li.appendChild(button);   
+        
+           //on click of answer
+    ul.addEventListener("click", function(event){
+        var val = document.getElementsByClassName("answer-button");
+        console.log(val);
+
+    });
     }
+    
+ 
 
 }  
 
