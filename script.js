@@ -87,7 +87,20 @@ startButton.addEventListener("click", startGame);
 
 //eventlistner function
 ul.addEventListener("click",function(event){
-    console.log(event.target.id);
-    
+    //button id
+    var buttonId = event.target.id;    
+    //correct answer
+    var correctAnswer = questions[currentQuestion].correctAnswer;
+
+    if(buttonId == correctAnswer)
+    {
+        console.log("correct answer");
+        document.getElementById("correct").style.display = "block";
+    }
+
+    else{
+        console.log("incorrect answer");
+        document.getElementById("incorrect").style.display = "block";
+    }
     
 });
