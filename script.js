@@ -43,14 +43,17 @@ var questions = [{
 }];
 
 var ul = document.querySelector(".choiceList");
+var timerElement = document.querySelector(".timer-count");
 var currentQuestion = 0;
-var iSelectedAnswer = [];
+//var iSelectedAnswer = [];
+var timer;
+var timerCount = 120;
 //console.log(questions.length);
 
 
 // The startGame function is called when the start button is clicked
 function startGame() {
-   
+    startTimer();
     displayCurrentQuestion();
   }
 
@@ -103,13 +106,34 @@ ul.addEventListener("click",function(event){
         {
         console.log("currentQuestion:" + currentQuestion);   
         displayCurrentQuestion();  
+        document.getElementById("correct").style.display = "none";
         }
         
     }
 
     else{
         console.log("incorrect answer");
+        timerCount = timerCount - 10;
         document.getElementById("incorrect").style.display = "block";
     }
     
 });
+
+function stopQuiz(){
+    
+}
+
+function startTimer() {
+    // Sets timer
+    timer = setInterval(function() {
+      timerCount--;
+      timerElement.textContent = timerCount;   
+      
+      if (timerCount === 0) {
+        // Clears interval
+        clearInterval(timer);        
+      }      
+    }, 1000);
+  }
+
+  
