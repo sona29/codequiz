@@ -126,13 +126,17 @@ function stopQuiz(){
 function startTimer() {
     // Sets timer
     timer = setInterval(function() {
+        if (timerCount < 0) {
+            // Clears interval
+            clearInterval(timer);        
+          }  
       timerCount--;
+      if(timerCount >= 0)
+      {
       timerElement.textContent = timerCount;   
+      }
       
-      if (timerCount === 0) {
-        // Clears interval
-        clearInterval(timer);        
-      }      
+         
     }, 1000);
   }
 
