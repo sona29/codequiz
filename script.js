@@ -45,6 +45,7 @@ var questions = [{
 var ul = document.querySelector(".choiceList");
 var currentQuestion = 0;
 var iSelectedAnswer = [];
+//console.log(questions.length);
 
 
 // The startGame function is called when the start button is clicked
@@ -55,9 +56,10 @@ function startGame() {
 
   //Function to display current question
 function displayCurrentQuestion(){
+    
     var question = questions[currentQuestion].question;
     var numChoices = questions[currentQuestion].choices.length;
-    var answer = questions[currentQuestion].correctAnswer;
+    //var answer = questions[currentQuestion].correctAnswer;
    
     ///Displaying question
     ul.textContent = question;
@@ -74,9 +76,7 @@ function displayCurrentQuestion(){
         button.id = i;
         button.className = "answer-button";
         button.textContent = choice;
-        li.appendChild(button);   
-
-    
+        li.appendChild(button);       
     }
  
 
@@ -95,7 +95,16 @@ ul.addEventListener("click",function(event){
     if(buttonId == correctAnswer)
     {
         console.log("correct answer");
-        document.getElementById("correct").style.display = "block";
+        document.getElementById("correct").style.display = "block"; 
+        currentQuestion++;  
+
+        //loop runned till end of all questions
+        if(currentQuestion < questions.length)
+        {
+        console.log("currentQuestion:" + currentQuestion);   
+        displayCurrentQuestion();  
+        }
+        
     }
 
     else{
