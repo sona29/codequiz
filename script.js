@@ -55,6 +55,7 @@ var timerCount = 120;
 function startGame() {
     startTimer();
     displayCurrentQuestion();
+    // clearInterval(timer);
   }
 
   //Function to display current question
@@ -108,6 +109,16 @@ ul.addEventListener("click",function(event){
         displayCurrentQuestion();  
         document.getElementById("correct").style.display = "none";
         }
+
+        if(currentQuestion == questions.length)
+        {
+            // var timer = startTimer();
+            clearInterval(timer);
+            //local storage of timer
+            var score = localStorage.setItem("score",timerCount);
+            console.log(score);
+
+        }
         
     }
 
@@ -138,6 +149,7 @@ function startTimer() {
       
          
     }, 1000);
+    return timer;
   }
 
   
