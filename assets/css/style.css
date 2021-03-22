@@ -18,18 +18,45 @@ header {
   padding: 10px;
 }
 
+h1 {
+  padding: 10px;
+}
+
+.start-button {
+  margin-top: 20px;
+}
+
 section {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   padding: 10px;
-  width: 50%;
-  border: 1px solid red;
+}
+
+article {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
 }
 
 body {
   font-family: sans-serif;
   background-color: #f9fbfd;
+}
+
+li {
+  padding-bottom: 5px;
+}
+
+.question {
+  padding-bottom: 5px;
+}
+
+.quiz-answers {
+  padding: 20px;
 }
 
 #correct {
