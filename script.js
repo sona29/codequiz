@@ -49,6 +49,7 @@ var highScore = [];
 var timer;
 var timerCount = 120;
 var highScores = [];
+var lastScore = [];
 //console.log(questions.length);
 
 //submit score form
@@ -156,7 +157,9 @@ saveButton.addEventListener("click", function(event) {
 
 
     function renderMessage() {
+        console.log("high scores: ", localStorage.getItem("highScores"));
         var lastScore = JSON.parse(localStorage.getItem("highScores"));
+        console.log("last score" + lastScore["score"]);
         if (lastScore !== null) {
           document.querySelector(".message").textContent = lastScore.initials + 
           " scored " + lastScore.score;
