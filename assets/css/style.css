@@ -37,7 +37,6 @@ section {
 article {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   padding: 10px;
 }
@@ -64,5 +63,9 @@ li {
 }
 
 #incorrect {
+  display: none;
+}
+
+#score-display {
   display: none;
 }
