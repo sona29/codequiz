@@ -56,9 +56,11 @@ var lastScore = [];
 var saveButton = document.getElementById("submit-form");
 var gamerInitial = document.getElementById("initial");
 
-
+//clear score
+var clearButton = document.getElementById("clear-highscore");
   
-
+//go back
+var goBack = document.getElementById("go-back");
 
 // The startGame function is called when the start button is clicked
 function startGame() {
@@ -156,14 +158,30 @@ saveButton.addEventListener("click", function(event) {
     });
 
 
+    //when clear score is pressed
+clearButton.addEventListener("click", function(event) {
+    event.preventDefault();
+    localStorage.clear();
+    document.querySelector(".message").textContent = '';
+    });
+
+    goBack.addEventListener("click", function(event) {
+        document.getElementById("quiz-block").style.display = "block";
+        document.getElementById("display-highscore").style.display = "none";
+        //startGame();
+        });    
+
+
     function renderMessage() {
+        document.getElementById("score-display").style.display = "none";
         console.log("high scores: ", localStorage.getItem("highScores"));
         var lastScore = JSON.parse(localStorage.getItem("highScores"));
-        console.log("last score" + lastScore["score"]);
+        console.log("last score" + lastScore[0].score);
         if (lastScore !== null) {
-          document.querySelector(".message").textContent = lastScore.initials + 
-          " scored " + lastScore.score;
+          document.querySelector(".message").textContent = "1." + lastScore[0].initials + 
+          "-" + lastScore[0].score;
         }
+        document.getElementById("display-highscore").style.display = "block";
       }
 
 function stopQuiz(){
