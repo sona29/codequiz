@@ -34,10 +34,6 @@ var questions = [{
     choices: ["The first div element", "The last div element", "All div elements", "Current div element"],
     correctAnswer: 2
 },{
-	question: "9. How can a value be appended to an array?",
-    choices: ["arr(length).value;", "arr[arr.length]=value;", "arr[]=add(value);", "None of these"],
-    correctAnswer: 1
-},{
 	question: "10. What will the code below output to the console? console.log(1 +  +'2' + '2');",
     choices: ["'32'", "'122'", "'13'", "'14'"],
     correctAnswer: 0
@@ -46,11 +42,23 @@ var questions = [{
 var ul = document.querySelector(".choiceList");
 var timerElement = document.querySelector(".timer-count");
 var scoreDiv = document.querySelector(".final-score");
+
 var currentQuestion = 0;
+var highScore = [];
 //var iSelectedAnswer = [];
 var timer;
 var timerCount = 120;
 //console.log(questions.length);
+
+//submit score form
+var saveButton = document.getElementById("submit-form");
+var gamerInitial = document.getElementById("initial");
+
+var formData = {
+    gamerInitial: gamerInitial.value,
+    score: timerCount     
+  }; 
+  
 
 
 // The startGame function is called when the start button is clicked
@@ -120,8 +128,12 @@ ul.addEventListener("click",function(event){
             // var timer = startTimer();
             clearInterval(timer);
             //local storage of timer
-            var score = localStorage.setItem("score",timerCount);            
-            document.location.href = "score-entry.html";
+            // var score = localStorage.setItem("score",timerCount);            
+            // document.location.href = "score-entry.html";
+            scoreDiv.textContent = timerCount;
+            document.getElementById("score-display").style.display = "block"; 
+            document.getElementById("quiz-block").style.display = "none"; 
+
         }
         
     }
@@ -134,13 +146,23 @@ ul.addEventListener("click",function(event){
     
 });
 
+
+
+saveButton.addEventListener("click", function(event) {
+    event.preventDefault();
+    localStorage.setItem("formData", JSON.stringify(formData));
+    
+    //console.log("here");
+    
+    });
+
 function stopQuiz(){
     
 }
 
 function getScore(){
-    var finalScore = localStorage.getItem(score);
-    scoreDiv.textContent = finalScore;
+    //var finalScore = localStorage.getItem(score);
+    //scoreDiv.textContent = finalScore;
 
 }
 
