@@ -69,3 +69,7 @@ li {
 #score-display {
   display: none;
 }
+
+#display-highscore {
+  display: none;
+}
