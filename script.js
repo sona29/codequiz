@@ -48,16 +48,14 @@ var highScore = [];
 //var iSelectedAnswer = [];
 var timer;
 var timerCount = 120;
+var highScores = [];
 //console.log(questions.length);
 
 //submit score form
 var saveButton = document.getElementById("submit-form");
 var gamerInitial = document.getElementById("initial");
 
-var formData = {
-    gamerInitial: gamerInitial.value,
-    score: timerCount     
-  }; 
+
   
 
 
@@ -147,14 +145,23 @@ ul.addEventListener("click",function(event){
 });
 
 
-
+//when submitting score function
 saveButton.addEventListener("click", function(event) {
     event.preventDefault();
-    localStorage.setItem("formData", JSON.stringify(formData));
-    
-    //console.log("here");
-    
+    var highScores = [];   
+    highScores.push({initials: gamerInitial.value, score: timerCount});
+    localStorage.setItem("highScores", JSON.stringify(highScores))  
+    renderMessage();
     });
+
+
+    function renderMessage() {
+        var lastScore = JSON.parse(localStorage.getItem("highScores"));
+        if (lastScore !== null) {
+          document.querySelector(".message").textContent = lastScore.initials + 
+          " scored " + lastScore.score;
+        }
+      }
 
 function stopQuiz(){
     
