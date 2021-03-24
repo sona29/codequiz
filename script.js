@@ -138,6 +138,8 @@ ul.addEventListener("click",function(event){
             scoreDiv.textContent = timerCount;
             document.getElementById("score-display").style.display = "block"; 
             document.getElementById("quiz-block").style.display = "none"; 
+            document.getElementById("incorrect").style.display = "none";
+        document.getElementById("correct").style.display = "none";
 
         }
 
@@ -162,8 +164,11 @@ ul.addEventListener("click",function(event){
 saveButton.addEventListener("click", function(event) {
     event.preventDefault();
     // var highScores = [];   
+    if(gamerInitial.value != null)
+    {
     highScores.push({initials: gamerInitial.value, score: timerCount});
     localStorage.setItem("highScores", JSON.stringify(highScores))  
+    }
     renderMessage();
     });
 
