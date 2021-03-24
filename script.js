@@ -43,12 +43,15 @@ var ul = document.querySelector(".choiceList");
 var timerElement = document.querySelector(".timer-count");
 var scoreDiv = document.querySelector(".final-score");
 
+var ulMessage = document.querySelector(".message");
+
 var currentQuestion = 0;
 var highScore = [];
 var timer;
 var timerCount = 120;
 var highScores = [];
 var lastScore = [];
+var listScores = [];
 //console.log(questions.length);
 
 //submit score form
@@ -111,16 +114,18 @@ ul.addEventListener("click",function(event){
 
     if(buttonId == correctAnswer)
     {
-        console.log("correct answer");
+        
         document.getElementById("correct").style.display = "block"; 
+        document.getElementById("incorrect").style.display = "none";
         currentQuestion++;  
 
         //loop runned till end of all questions
         if(currentQuestion < questions.length)
         {
-        console.log("currentQuestion:" + currentQuestion);   
+        // console.log("currentQuestion:" + currentQuestion);   
         displayCurrentQuestion();  
-        document.getElementById("correct").style.display = "none";
+         document.getElementById("correct").style.display = "none";
+         document.getElementById("incorrect").style.display = "none";
         }
 
         if(currentQuestion == questions.length)
@@ -147,6 +152,7 @@ ul.addEventListener("click",function(event){
         console.log("incorrect answer");
         timerCount = timerCount - 10;
         document.getElementById("incorrect").style.display = "block";
+        document.getElementById("correct").style.display = "none";
     }
     
 });
@@ -155,7 +161,7 @@ ul.addEventListener("click",function(event){
 //when submitting score function
 saveButton.addEventListener("click", function(event) {
     event.preventDefault();
-    var highScores = [];   
+    // var highScores = [];   
     highScores.push({initials: gamerInitial.value, score: timerCount});
     localStorage.setItem("highScores", JSON.stringify(highScores))  
     renderMessage();
@@ -181,23 +187,27 @@ clearButton.addEventListener("click", function(event) {
         quizAgain.addEventListener("click", function(event) {
             document.getElementById("quiz-block").style.display = "block";
             document.getElementById("display-highscore").style.display = "none";
+            document.getElementById("quiz-over").style.display = "none";
             currentQuestion = 0;
             timerCount = 120;
             startGame();
+            
             }); 
 
 
-    function renderMessage() {
+function renderMessage() {
         document.getElementById("score-display").style.display = "none";
         console.log("high scores: ", localStorage.getItem("highScores"));
         var lastScore = JSON.parse(localStorage.getItem("highScores"));
-        console.log("last score" + lastScore[0].score);
+    
+
+        
         if (lastScore !== null) {
           document.querySelector(".message").textContent = "1." + lastScore[0].initials + 
           "-" + lastScore[0].score;
         }
         document.getElementById("display-highscore").style.display = "block";
-      }
+}
 
 function stopQuiz(){
     
@@ -215,7 +225,10 @@ function startTimer() {
         if (timerCount < 0) {
             // Clears interval
             clearInterval(timer);  
-            document.getElementById("quiz-over").style.display = "block";    
+            document.getElementById("quiz-over").style.display = "block"; 
+            document.getElementById("incorrect").style.display = "none";
+            document.getElementById("correct").style.display = "none";  
+            document.getElementById("quiz-block").style.display = "none"; 
           }  
       timerCount--;
       if(timerCount >= 0)
