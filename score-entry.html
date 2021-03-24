@@ -5,22 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coding Quiz Challenge</title>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,400;0,700;1,200&display=swap"
+    rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/reset.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 <body>
 
-    <div class="wrapper">    
+ <div class="wrapper">    
 
-    <section id="quiz-info">        
-        <h1>All Done!!</h1>
-        Your Final Score is: <div class="final-score"></div>
+    <section>        
+       <div><h1>High Score</h1></div> 
+      
+
+        <div class="list-score">
+            <ul class="message">
+                <!-- <li class="message"></li> -->
+            </ul>
+        </div>  
+        
+        <div class="no-highscore"></div>
+        <div>
+            <button id="play-quiz"></button>
+        </div>
 
     </section>
-</div>     
+ </div>     
     
     
 
-<script src="script.js"></script> 
+<script src="scorescript.js"></script> 
 </body>
 </html>
