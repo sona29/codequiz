@@ -10,7 +10,12 @@ document.addEventListener('DOMContentLoaded', function() {
     var lastScore = JSON.parse(localStorage.getItem("highScores")) || [];
   
 
-    if(lastScore.length){        
+    if(lastScore.length){   
+        //sorting in descending order
+        lastScore.sort((a, b) => {
+            return b.score - a.score
+          });  
+           
         for (var i = 0; i < lastScore.length; i++)
             {
                 console.log(lastScore[i].score);
