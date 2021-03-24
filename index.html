@@ -16,7 +16,7 @@
     <!-- header section -->
     <header>
         <div id="high-score">
-            <a href="">View Highscore</a>
+            <a href="score-entry.html">View Highscore</a>
         </div>
 
         <div class="quiz-time">
@@ -46,11 +46,15 @@
     </article>
     
     <!-- message for correct and incorrect answer -->
+    <section class="message-display">
     <div id = "correct"><p>Correct Answer</p></div>  
-    <div id = "incorrect"><p>Incorrect Answer</p></div> 
+    <div id = "incorrect"><p>Incorrect Answer!!!</p></div> 
+    </section>
+
 
     <!-- score display section -->
-    <section id="score-display">        
+    <section>  
+        <div id = "score-display">  
         <div><h1>All Done!!</h1></div> 
          Your Final Score is: <div class="final-score"></div>
  
@@ -59,27 +63,36 @@
          <form>
              <label>Enter Initials</label>
              <input type="text" name="Enter Intials" id="initial">
-             <input type="submit" value="Submit" id="submit-form">
+             <button id="submit-form">Submit</button>
+             <!-- <input type="submit" value="Submit" id="submit-form"> -->
         </form>
-        </div>  
+        </div> 
+        
+    </div>    
     </section>
 
     <!-- section to display high score -->
-     <section id="display-highscore">
+     <section>
+         <div id="display-highscore">
          <h1>High Score</h1>
-         <ul>
-             <li class="message"></li>
+         <ul class="message">
+             <!-- <li class="message"></li> -->
          </ul>
     
      <div id="next-steps">
         <button id="go-back">Go Back</button>
          <button id="clear-highscore">Clear Highscore</button>
      </div>
+
+    </div>
     </section>
 
-    <section id="quiz-over">
+
+    <section>
+        <div id="quiz-over">
         <h1>Quiz Over</h1>
         <button id="quiz-again">Start Quiz Again</button>
+    </div>
     </section>
     
     <script src="script.js"></script>
