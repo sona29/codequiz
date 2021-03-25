@@ -156,12 +156,8 @@ saveButton.addEventListener("click", function(event) {
  
     event.preventDefault();
     // if initials are entered when score is submitted     
-    if(gamerInitial.value){
-
-        
+    if(gamerInitial.value){        
         highScores = JSON.parse(localStorage.getItem("highScores"));
-   
-
         highScores.push({initials: gamerInitial.value, score: timerCount});
         localStorage.setItem("highScores", JSON.stringify(highScores));
         renderMessage();
