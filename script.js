@@ -34,7 +34,7 @@ var questions = [{
     choices: ["The first div element", "The last div element", "All div elements", "Current div element"],
     correctAnswer: 2
 },{
-	question: "10. What will the code below output to the console? console.log(1 +  +'2' + '2');",
+	question: "9. What will the code below output to the console? console.log(1 +  +'2' + '2');",
     choices: ["'32'", "'122'", "'13'", "'14'"],
     correctAnswer: 0
 }];
