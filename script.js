@@ -164,12 +164,17 @@ ul.addEventListener("click",function(event){
 saveButton.addEventListener("click", function(event) {
     event.preventDefault();
     // var highScores = [];   
-    if(gamerInitial.value != null)
+    console.log('gi ------------------------'+ gamerInitial.value);
+    if(gamerInitial.value)
     {
     highScores.push({initials: gamerInitial.value, score: timerCount});
     localStorage.setItem("highScores", JSON.stringify(highScores))  
-    }
     renderMessage();
+    }
+    else {
+        alert("Please enter intials.");
+    }
+    
     });
 
 
