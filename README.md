@@ -12,6 +12,10 @@
 
 ![alt text](assets/images/codequiz.png)
 
+## Technology used
+
+HTML, CSS, JavaScript
+
 ## Link to deployed application
 
 https://sona29.github.io/codequiz/index.html
